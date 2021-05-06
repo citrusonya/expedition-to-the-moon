@@ -1,0 +1,29 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	align-content: center;
+    height: 100vh;
+}
+
+.content {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.nav-link {
+    max-width: 170px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.nav-link:hover {
+    color: #0d6efd;
+}
+
+.active_link {
+    color: #0d6efd;
+}
