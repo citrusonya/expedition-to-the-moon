@@ -9,12 +9,12 @@
 
 			if(filter_var($email, FILTER_VALIDATE_EMAIL)){
 				$sql = "SELECT * from users where email = :email";
-				$handle = $pdo->prepare($sql);
+				$handle = $pdo -> prepare($sql);
 				$params = ['email'=>$email];
 				$handle -> execute($params);
 				
 				if($handle -> rowCount() > 0){
-					$getRow = $handle->fetch(PDO::FETCH_ASSOC);
+					$getRow = $handle -> fetch(PDO::FETCH_ASSOC);
 					
 					if(password_verify($password, $getRow['password'])){
 						unset($getRow['password']);

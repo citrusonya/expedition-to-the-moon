@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
                     $handle -> execute($params);
                     
                     $success = 'Регистрация завершена успешно. Добро пожаловать!';
-                    header('refresh: 2; location:login.php');
+                    header('location:login.php');
 					exit();
                     
                 } catch(PDOException $e){
