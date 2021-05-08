@@ -1,13 +1,10 @@
 <?php
-    $sql = 'SELECT * FROM users ORDER BY id';
-    $stmt = $pdo -> prepare($sql);
-    $stmt -> execute();
-
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    require_once('./components/team.php');
 ?>
 
 <div data-content-id="team" class="content">
-    <h2>Наша команда</h2>
+        <div class="text-center"><h2>Наша команда</h2></div>
+        <button class="btn btn-outline-primary m-3" type="button" id="add_button" data-toggle="modal" data-target="#userModal"><i class="bi bi-plus-circle"></i></button>
     <table class="table">
         <tr>
             <th>Имя</th>
@@ -15,14 +12,21 @@
             <th>Должность</th>
             <th>Звание</th>
             <th>Страна</th>
+            <th></th>
         </tr>
         <?php foreach ($users as $u): ?>
             <tr>
                 <td><?=$u['first_name']?></td>
                 <td><?=$u['last_name']?></td>
-                <td>Ячейка 3</td>
-                <td>Ячейка 4</td>
-                <td>Ячейка 3</td>
+                <td><?=$u['sp_name']?></td>
+                <td><?=$u['rank_name']?></td>
+                <td><?=$u['country_name']?></td>
+                <td>
+                    <form method="POST">
+                        <button class="btn btn-outline-success button_update" type="button" name="update" id="<?= $u['id'] ?>"><i class="bi bi-pencil"></i></button>
+                        <button class="btn btn-outline-danger button_delete" type="button" name="delete" id="<?= $u['id'] ?>"><i class="bi bi-trash"></i></button>
+                    </form>
+                </td>
             </tr>
 		<?php endforeach; ?>
     </table>
