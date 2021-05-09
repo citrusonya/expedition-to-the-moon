@@ -8,9 +8,9 @@
 			$password = trim($_POST['password']);
 
 			if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-				$sql = "SELECT * from users where email = :email";
+				$sql = "SELECT * FROM users WHERE email = :email";
 				$handle = $pdo -> prepare($sql);
-				$params = ['email'=>$email];
+				$params = ['email' => $email];
 				$handle -> execute($params);
 				
 				if($handle -> rowCount() > 0){
