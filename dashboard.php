@@ -58,6 +58,14 @@
                 $('.content[data-content-id="' + itemId + '"]').addClass('active');
             });
 
+            $("#country").on('change', function(){
+                if($(this).val() == 0){
+                    $("#input_country").show();
+                } else {
+                    $("#input_country").hide();
+                }
+            })
+
             $('.button_delete').on('click', function(){
 
                 const id = $(this).attr('id');
