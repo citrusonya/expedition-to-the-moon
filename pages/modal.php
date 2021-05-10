@@ -8,11 +8,11 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="first_name">Имя:</label>
-                        <input type="text" name="first_name" placeholder="Александр" class="form-control" required value="<?php $valFirstName ?>">
+                        <input type="text" name="first_name" id="first_name" placeholder="Александр" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="last_name">Фамилия:</label>
-                        <input type="text" name="last_name" placeholder="Орлов" class="form-control" required value="<?php $valLastName ?>">
+                        <input type="text" name="last_name" id="last_name" placeholder="Орлов" class="form-control" required>
                     </div>
                     <?php
                         require_once('form_parts.php')
@@ -20,8 +20,8 @@
                     <div class="modal-footer">
                         <input type="hidden" name="id" id="id" />
                         <input type="hidden" name="operation" id="operation" />
-                        <input type="submit" name="action" id="btn_action" class="btn btn-success" value="Add" />
-                        <button type="button" id="btn_close" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                        <input type="submit" name="action" id="action" class="btn btn-success" value="Рекрутировать" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
                     </div>
                 </div>
             </div>
