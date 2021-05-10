@@ -66,17 +66,67 @@
                 }
             })
 
+            $('#add_button').click(function(){
+                $('#person_form')[0].reset();
+                $('#operation').val("Add");
+            });
+
+            $(document).on('submit', '#person_form', function(e){
+   
+                e.preventDefault();
+                const   first_name = $('#first_name').val(),
+                        last_name = $('#last_name').val();
+                let     sp_id = $("#sp_id").val(),
+                        rank_id = $("#rank_id").val(),
+                        country_id = $("#country_id").val();
+
+                if(first_name != '' && last_name != '') {
+                    
+                    $.ajax({
+                        url:"crud/person_change.php",
+                        method:'POST',
+                        data: new FormData(this),
+                        contentType: false,
+                        processData: false,
+                            
+                        success: function(data){
+                            Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Экипаж укомплектован успешно!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                            
+                            $('#person_form')[0].reset();
+                            $('#userModal').modal('hide');
+                        },
+
+                        error:function(data){
+                            Swal.fire({
+                            icon: 'error',
+                            title: 'Произошла ошибка, попробуйте снова.',
+                            showConfirmButton: false,
+                            timer: 1500
+                            })
+                        }
+                    });
+                }
+            });
+
             $('.button_delete').on('click', function(){
 
-                const id = $(this).attr('id');
+                const   id = $(this).attr('id'),
+                        personFName = $(this).attr('data-f-name'),
+                        personLName = $(this).attr('data-l-name');
 
                 Swal.fire({
-                    title: 'Вы уверены, что хотите удалить запись?',
+                    title: `Вы уверены, что ${personFName} ${personLName} не соответствует специализации?`,
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Да, удалить',
+                    confirmButtonText: 'Да, вернуть на Землю',
                     cancelButtonText: 'Нет'
 
                 }).then((result) => {
@@ -84,14 +134,14 @@
                     if (result.isConfirmed) {
 
                         $.ajax({
-                            url:"ajax/person_delete.php",
+                            url:"crud/person_delete.php",
                             method:"POST",
                             data: { id:id },
 
                             success:function(data){
                                 Swal.fire({
                                     icon: 'success',
-                                    title: 'Запись удалена!',
+                                    title: 'Бывший сотрудник успешно доставлен домой!',
                                     showConfirmButton: false,
                                     timer: 1500
                                 })
@@ -100,7 +150,7 @@
                             error:function(data){
                                 Swal.fire({
                                     icon: 'error',
-                                    title: 'Произошла ошибка, попробуйте снова.',
+                                    title: 'Что-то пошло не так. Пожалуйста, попробуйте позже.',
                                     showConfirmButton: false,
                                     timer: 1500
                                 })
