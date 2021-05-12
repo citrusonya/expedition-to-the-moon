@@ -23,8 +23,8 @@
                     <td><?= $e[''] ?></td>
                     <td><?= $e[''] ?></td>
                     <td>
-                        <button class="btn btn-outline-success" type="button" name="update" id="'.$row["id"].'"><i class="bi bi-pencil"></i></button>
-                        <button class="btn btn-outline-danger" type="button" name="delete" id="'.$row["id"].'"><i class="bi bi-trash"></i></button>
+                        <button type="button" class="btn_aqua" name="update"><ion-icon name="create-outline"></ion-icon></button>
+                        <button type="button" class="btn_pink" name="delete"><ion-icon name="trash-outline"></ion-icon></button>
                     </td>
                 </tr>
             <?php endforeach; ?>
