@@ -17,27 +17,6 @@
             </tr>
         </thead>
         <tbody id="hey">
-            <?php foreach ($users as $u): ?>
-                <tr>
-                    <td class="table_col"><?=$u['first_name']?></td>
-                    <td class="table_col"><?=$u['last_name']?></td>
-                    <td><?=$u['sp_name']?></td>
-                    <td><?=$u['rank_name']?></td>
-                    <td><?=$u['country_name']?></td>
-                    <td>
-                        <button class="btn_aqua edit" type="button" name="edit" 
-                            data-f-name="<?=$u['first_name']?>" data-l-name="<?=$u['last_name']?>" id="<?= $u['id'] ?>">
-                            <ion-icon name="create-outline"></ion-icon>
-                        </button>
-                        <form method="POST">
-                            <button class="btn_pink delete" type="button" name="delete" 
-                                data-f-name="<?=$u['first_name']?>" data-l-name="<?=$u['last_name']?>" id="<?= $u['id'] ?>">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
         </tbody>
     </table>
 </div>

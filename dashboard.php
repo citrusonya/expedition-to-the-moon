@@ -45,4 +45,24 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
     <script src="./js/main.js"></script>
+    <script>
+        var strInForm = $('form').serialize();
+
+        $.ajax({
+            url: "crud/users_JSON.php",
+            cache: false,
+            type: "POST",
+            dataType: 'json',     
+            data: strInForm,
+
+            success: function (data) {
+                $.each(data, function(i, val){
+                    $('#hey').append(val);
+                });
+            },
+            error: function() {
+                $('p').text('Error!');
+            }
+        });
+</script>
 </body>
