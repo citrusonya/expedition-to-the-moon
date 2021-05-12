@@ -3,31 +3,35 @@
 ?>
 
 <div data-content-id="water_supply" class="content">
-    <div class="text-center"><h2>Водоснабжение</h2></div>
-    <button class="btn btn-outline-primary m-3" type="button" id="add_button" data-toggle="modal" data-target="#userModal"><i class="bi bi-plus-circle"></i></button>
-    <table class="table">
-        <tr>
-            <th class="text-center">Установка</th>
-            <th class="text-center">Производит, л.</th>
-            <th class="text-center">Потребляет электричество, квт.</th>
-            <th class="text-center">Потребляет кислород, куб/м.</th>
-            <th class="text-center">Активность, ч.</th>
-            <th class="text-center">Потребитель</th>
-            <th></th>
-        </tr>
-        <?php foreach ($water_supply as $w): ?>
+    <div><h2>Водоснабжение</h2></div>
+    <button type="button" id="add_button" class="btn_table btn_blue open_modal"><ion-icon name="add-circle-outline"></ion-icon></button>
+    <table>
+        <thead>
             <tr>
-                <td><?= $w['generator'] ?></td>
-                <td class="text-center"><?= $w['amount'] ?></td>
-                <td class="text-center"><?= $w['consumes_electr'] ?></td>
-                <td class="text-center"><?= $w['consumes_air'] ?></td>
-                <td><?= $w[''] ?></td>
-                <td><?= $w[''] ?></td>
-                <td>
-                    <button class="btn btn-outline-success" type="button" name="update" id=""><i class="bi bi-pencil"></i></button>
-                    <button class="btn btn-outline-danger" type="button" name="delete" id=""><i class="bi bi-trash"></i></button>
-                </td>
+                <th>Установка</th>
+                <th>Производит, л.</th>
+                <th>Потребляет электричество, квт.</th>
+                <th>Потребляет кислород, куб/м.</th>
+                <th>Активность, ч.</th>
+                <th>Потребитель</th>
+                <th></th>
             </tr>
-        <?php endforeach; ?>
+        </thead>
+        <tbody>
+            <?php foreach ($water_supply as $w): ?>
+                <tr>
+                    <td class="table_col"><?= $w['generator'] ?></td>
+                    <td><?= $w['amount'] ?></td>
+                    <td><?= $w['consumes_electr'] ?></td>
+                    <td><?= $w['consumes_air'] ?></td>
+                    <td><?= $w[''] ?></td>
+                    <td><?= $w[''] ?></td>
+                    <td>
+                        <button type="button" class="btn_aqua" name="update"><ion-icon name="create-outline"></ion-icon></button>
+                        <button type="button" class="btn_pink" name="delete"><ion-icon name="trash-outline"></ion-icon></button>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
     </table>
 </div>

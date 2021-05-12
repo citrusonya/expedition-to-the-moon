@@ -1,31 +1,35 @@
 <?php
-    require_once('./components/oxygen generation.php')
+    require_once('./components/oxygen_generation.php')
 ?>
 
 <div data-content-id="oxygen_generation" class="content">
-    <div class="text-center"><h2>Электроэнергия</h2></div>
-    <button class="btn btn-outline-primary m-3" type="button" id="add_button" data-toggle="modal" data-target="#userModal"><i class="bi bi-plus-circle"></i></button>
-    <table class="table">
-        <tr>
-            <th class="text-center">Установка</th>
-            <th class="text-center">Производит, куб/м.</th>
-            <th class="text-center">Потребляет электричество, квт.</th>
-            <th class="text-center">Активность, ч.</th>
-            <th class="text-center">Потребитель</th>
-            <th></th>
-        </tr>
-        <?php foreach ($oxygen as $o): ?>
+    <h2>Кислородогенерация</h2>
+    <button type="button" id="add_button" class="btn_table btn_blue open_modal"><ion-icon name="add-circle-outline"></ion-icon></button>
+    <table>
+        <thead>
             <tr>
-                <td><?= $o['generator'] ?></td>
-                <td class="text-center"><?= $o['amount'] ?></td>
-                <td class="text-center"><?= $o['consumes_electr'] ?></td>
-                <td><?= $o[''] ?></td>
-                <td><?= $o[''] ?></td>
-                <td>
-                    <button class="btn btn-outline-success" type="button" name="update" id=""><i class="bi bi-pencil"></i></button>
-                    <button class="btn btn-outline-danger" type="button" name="delete" id=""><i class="bi bi-trash"></i></button>
-                </td>
+                <th class="text-center">Установка</th>
+                <th class="text-center">Производит, куб/м.</th>
+                <th class="text-center">Потребляет электричество, квт.</th>
+                <th class="text-center">Активность, ч.</th>
+                <th class="text-center">Потребитель</th>
+                <th></th>
             </tr>
-        <?php endforeach; ?>
+        </thead>
+        <tbody>
+            <?php foreach ($oxygen as $o): ?>
+                <tr>
+                    <td class="table_col"><?= $o['generator'] ?></td>
+                    <td><?= $o['amount'] ?></td>
+                    <td><?= $o['consumes_electr'] ?></td>
+                    <td><?= $o[''] ?></td>
+                    <td><?= $o[''] ?></td>
+                    <td>
+                        <button type="button" class="btn_aqua" name="update"><ion-icon name="create-outline"></ion-icon></button>
+                        <button type="button" class="btn_pink" name="delete"><ion-icon name="trash-outline"></ion-icon></button>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
     </table>
 </div>

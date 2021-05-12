@@ -1,11 +1,11 @@
 <?php
-    require_once('./components/team.php');
+    require_once('./crud/person_change.php');
 ?>
 
 <div data-content-id="team" class="content">
-        <div class="text-center"><h2>Наша команда</h2></div>
-        <button class="btn btn-outline-primary m-3" type="button" id="add_button" data-toggle="modal" data-target="#userModal"><i class="bi bi-plus-circle"></i></button>
-    <table class="table">
+        <h2>Экипаж</h2>
+        <button type="button" id="add_button" class="btn_table btn_blue open_modal"><ion-icon name="person-add-outline"></ion-icon></button>
+    <table>
         <thead>
             <tr>
                 <th>Имя</th>
@@ -16,17 +16,25 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="hey">
             <?php foreach ($users as $u): ?>
                 <tr>
-                    <td><?=$u['first_name']?></td>
-                    <td><?=$u['last_name']?></td>
+                    <td class="table_col"><?=$u['first_name']?></td>
+                    <td class="table_col"><?=$u['last_name']?></td>
                     <td><?=$u['sp_name']?></td>
                     <td><?=$u['rank_name']?></td>
                     <td><?=$u['country_name']?></td>
                     <td>
-                        <button class="btn btn-outline-success button_update" type="button" name="update" id="<?= $u['id'] ?>"><i class="bi bi-pencil"></i></button>
-                        <button class="btn btn-outline-danger button_delete" type="button" name="delete" id="<?= $u['id'] ?>"><i class="bi bi-trash"></i></button>
+                        <button class="btn_aqua edit" type="button" name="edit" 
+                            data-f-name="<?=$u['first_name']?>" data-l-name="<?=$u['last_name']?>" id="<?= $u['id'] ?>">
+                            <ion-icon name="create-outline"></ion-icon>
+                        </button>
+                        <form method="POST">
+                            <button class="btn_pink delete" type="button" name="delete" 
+                                data-f-name="<?=$u['first_name']?>" data-l-name="<?=$u['last_name']?>" id="<?= $u['id'] ?>">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </button>
+                        </form>
                     </td>
                 </tr>
             <?php endforeach; ?>

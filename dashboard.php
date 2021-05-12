@@ -15,21 +15,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Экспедиция на луну</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link   rel="stylesheet" 
-            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
-            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
-            crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.min.css">
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </head>
 
 <body>
-    <div class="container mt-4 up">
-        <div class="row align-items-center">
-            <div class="col-10"><h1>Рады Вас видеть, <?= ucfirst($_SESSION['first_name']); ?></h1></div>
-            <div class="col-2"><a href="logout.php?logout=true" class="btn btn-light">Выйти</a></div>
+    <svg id="svg" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="wrapper">
+        <div class="container header">
+            <h1>Рады Вас видеть, <span><?= ucfirst($_SESSION['first_name']); ?></span>.</h1>
+            <a href="logout.php?logout=true" class="link_logout"><ion-icon name="exit-outline"></ion-icon></a>
         </div>
         <?php
-            include_once 'navigation.php';
+            require_once 'navigation.php';
             include_once './pages/profile.php';
             include_once './pages/team.php';
             include_once './pages/electricity.php';
@@ -45,7 +43,6 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
     <script src="./js/main.js"></script>
 </body>

@@ -3,31 +3,35 @@
 ?>
 
 <div data-content-id="protein_generation" class="content">
-    <div class="text-center"><h2>Протеиногенерация</h2></div>
-    <button class="btn btn-outline-primary m-3" type="button" id="add_button" data-toggle="modal" data-target="#userModal"><i class="bi bi-plus-circle"></i></button>
-    <table class="table">
-        <tr>
-            <th class="text-center">Установка</th>
-            <th class="text-center">Производит, гр.</th>
-            <th class="text-center">Потребляет электричество, квт.</th>
-            <th class="text-center">Потребляет воду, л.</th>
-            <th class="text-center">Активность, ч.</th>
-            <th class="text-center">Потребитель</th>
-            <th></th>
-        </tr>
-        <?php foreach ($proteins as $p): ?>
+    <h2>Протеиногенерация</h2>
+    <button type="button" id="add_button" class="btn_table btn_blue open_modal"><ion-icon name="add-circle-outline"></ion-icon></button>
+    <table>
+        <thead>
             <tr>
-                <td><?= $p['generator'] ?></td>
-                <td class="text-center"><?= $p['amount'] ?></td>
-                <td class="text-center"><?= $p['consumes_electr'] ?></td>
-                <td class="text-center"><?= $p['consumes_water'] ?></td>
-                <td><?= $p[''] ?></td>
-                <td><?= $p[''] ?></td>
-                <td>
-                    <button class="btn btn-outline-success" type="button" name="update" id=""><i class="bi bi-pencil"></i></button>
-                    <button class="btn btn-outline-danger" type="button" name="delete" id=""><i class="bi bi-trash"></i></button>
-                </td>
+                <th>Установка</th>
+                <th>Производит, гр.</th>
+                <th>Потребляет электричество, квт.</th>
+                <th>Потребляет воду, л.</th>
+                <th>Активность, ч.</th>
+                <th>Потребитель</th>
+                <th></th>
             </tr>
-        <?php endforeach; ?>
+        </thead>
+        <tbody>
+            <?php foreach ($proteins as $p): ?>
+                <tr>
+                    <td class="table_col"><?= $p['generator'] ?></td>
+                    <td><?= $p['amount'] ?></td>
+                    <td><?= $p['consumes_electr'] ?></td>
+                    <td><?= $p['consumes_water'] ?></td>
+                    <td><?= $p[''] ?></td>
+                    <td><?= $p[''] ?></td>
+                    <td>
+                        <button type="button" class="btn_aqua" name="update"><ion-icon name="create-outline"></ion-icon></button>
+                        <button type="button" class="btn_pink" name="delete"><ion-icon name="trash-outline"></ion-icon></button>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
     </table>
 </div>

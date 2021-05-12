@@ -13,14 +13,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Регистрация</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.min.css">
 </head>
 
 <body>
-    <div class="wrapper justify-content-center align-items-center">
-		<div class="col-md-5 p-4 align-self-center border bg-light">
-			<h1 class="p-2 text-center" >Регистрация</h1>
+	<svg id="svg" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="wrapper auth">
+		<div class="container_auth">
+			<h1>Регистрация</h1>
 			<?php 
 				if(isset($errors) && count($errors) > 0){
 					
@@ -34,26 +34,27 @@
                 }
 			?>
 			<form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
-                <div class="form-group">
-					<label for="first_name">Имя:</label>
-					<input type="text" name="first_name" placeholder="Александр" class="form-control" required value="<?php $valFirstName ?>">
+				<label for="first_name">Имя:</label>
+				<input type="text" name="first_name" placeholder="Александр" required value="<?php $valFirstName ?>">
+				<label for="last_name">Фамилия:</label>
+				<input type="text" name="last_name" placeholder="Орлов" required value="<?php $valLastName ?>">
+				<label for="email">Email:</label>
+				<input type="text" name="email" placeholder="example@gmail.com" required value="<?php $valEmail ?>">
+				<label for="password">Пароль:</label>
+				<input type="password" name="password" placeholder="**********" required value="<?php $valPassword ?>">
+				<div>
+					<button type="submit" name="submit" class="btn btn_yellow">Стать новым членом экипажа</button>
+					<a href="login.php" class="btn btn_aqua">Вернуться на страницу входа</a>
 				</div>
-                <div class="form-group">
-					<label for="last_name">Фамилия:</label>
-					<input type="text" name="last_name" placeholder="Орлов" class="form-control" required value="<?php $valLastName ?>">
-				</div>
-                <div class="form-group">
-					<label for="email">Email:</label>
-					<input type="text" name="email" placeholder="example@gmail.com" class="form-control" required value="<?php $valEmail ?>">
-				</div>
-				<div class="form-group">
-				<label for="email">Пароль:</label>
-					<input type="password" name="password" placeholder="**********" class="form-control" required value="<?php $valPassword ?>">
-				</div>
-				<button type="submit" name="submit" class="btn btn-success">Сохранить данные</button>
-				<p class="pt-2">Вернуться на страницу <a href="login.php">входа</a></p>
 			</form>
 	    </div>
     </div>
+	<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
