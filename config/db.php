@@ -1,8 +1,8 @@
 <?php
 	define('host', 'localhost');
 	define('database', 'expedition');
-	define('username', 'ananasjojo');
-	define('password', 'PzztcYzM1sXi8a5V');
+	define('username', 'name');
+	define('password', 'password');
 	
 	try {
 			$pdo = new PDO("mysql:host=" . host . ";dbname=" . database, username, password);
